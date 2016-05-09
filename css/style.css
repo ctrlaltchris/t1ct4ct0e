@@ -62,19 +62,24 @@ button {
     border-radius: 6px;
     border: 20px solid #566270;
     box-sizing: border-box;
+
 }
 
 .cell {
-    width: 33%;
+    font-size: 5em;
+    width: 33.3%;
     height: 100%;
-    display: inline-block;
-    border: 10px solid #566270;
+    display: flex;
+    justify-content: space-between;
+    border: 12px solid #566270;
     box-sizing: border-box;
-
+    margin: auto;
 }
 
 .row {
     width: 100%;
-    height: 33%;
-    display: inline-block;
+    height: 33.3%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
 }
