@@ -1,9 +1,13 @@
 $(function(){
 
     var round = 1;
-    var player = "X"
-    var cpu = "O"
-    var clickDOMid
+    var player = "X";
+    var cpu = "O";
+    var clickDOMid;
+    var playerScore;
+    var cpuScore;
+
+    var wins = [7, 56, 448, 73, 146, 292, 273, 84];
 
     // Game code
 
@@ -14,10 +18,28 @@ $(function(){
         clickDOMid = $(event.target)
         console.log(clickID);
         console.log(clickDOMid);
-        $(event.text)[0] = "X";
+        $(event.text)[0] = "sX";
         console.log(this.id);
 
     });
+
+
+
+
+
+
+//
+// /*
+//  * Returns whether the given score is a winning score.
+//  */
+//     win = function (score) {
+//         for (var i = 0; i < wins.length; i += 1) {
+//             if ((wins[i] & score) === wins[i]) {
+//                 return true;
+//             }
+//         }
+//         return false;
+//     },
 
 
 
