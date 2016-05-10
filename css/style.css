@@ -34,8 +34,10 @@ button {
 
 #buttons {
     position: absolute;
-    bottom: -50px;
+    bottom: -70px;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #score {
@@ -53,8 +55,8 @@ button {
 }
 
 #gameArea {
-    width: 75%;
-    height: 75%;
+    width: 70%;
+    height: 70%;
     background: #E0E3DA;
     position: absolute;
     top: 18%;

@@ -6,6 +6,8 @@
     var p2mark = "O";
     var p1 = 0;
     var p2 = 0;
+    var p1wins = 0;
+    var p2wins = 0;
     var click;
     var clickScore;
     var playerScore = 0;
@@ -46,7 +48,7 @@
                     p2 += Number(this.id);
                     console.log("p2 score is: " + p2);
 
-                    checkWinner(p2);
+                    checkWinner(p2, nextPlayer);
 
                 } else {
                     return;
@@ -59,11 +61,19 @@
     };
 
     // Check for a win
-    function checkWinner(score) {
+    function checkWinner(score, nextPlayer) {
         for (var i = 0; i < wins.length; i++) {
             console.log(wins[i] & score);
-            if (score === wins[i]) {
+            if ((wins[i] & score) === wins[i]) {
                 console.log("WINNAR!");
+                if (nextPlayer === "p1"){
+                    $('h1').text("<< p2 WINS! >>");
+                    p2wins++
+                }else {
+                    $('h1').text("<< p1 WINS! >>");
+                    p1wins++
+                }
+
             }
         }
     };
