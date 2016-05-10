@@ -1,4 +1,4 @@
-$(function(){
+// $(function(){
 
     var turn = 0;
     var round = 1;
@@ -58,15 +58,14 @@ $(function(){
 
     };
 
-    // Check for a winner!
-
+    // Check for a win
     function checkWinner(score) {
         for (var i = 0; i < wins.length; i++) {
+            console.log(wins[i] & score);
             if (score === wins[i]) {
                 console.log("WINNAR!");
             }
         }
-        playOneRound();
     };
 
-});
+// });
