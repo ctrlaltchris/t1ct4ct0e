@@ -1,27 +1,67 @@
 $(function(){
 
+    var turn = 1;
     var round = 1;
-    var player = "X";
-    var cpu = "O";
-    var clickDOMid;
-    var playerScore;
-    var cpuScore;
+    var p1mark = "X";
+    var p2mark = "O";
+    var p1 = 0;
+    var p2 = 0;
+    var clickScore;
+    var playerScore = 0;
+    var cpuScore = 0;
+    var currentPlayer = "p1";
+    var currentPlayerMark;
 
     var wins = [7, 56, 448, 73, 146, 292, 273, 84];
 
+    // Get current player function, return the current players mark to rest of game
+
+    // function turnChooser(){
+    //     if (turn%2 === 2){
+    //         currentPlayerMark = p2mark;
+    //         currentPlayer = p2;
+    //     }else {
+    //         currentPlayerMark = p1mark;
+    //         currentPlayer = p1;
+    //     }
+    //     console.log(currentPlayerMark);
+    //     return currentPlayerMark;
+    // }
+    //
+    // turnChooser()
+
     // Game code
 
-    $('.cell').on('click', function(event){
-        // Catch the user click and return div id
-        var clickID = $(event.target.id);
+    function playOneRound(){
+        if (currentPlayer = "p1"){
+            currentPlayerMark = p1mark;
+            var nextPlayer = "p2"
+        }else {
+            currentPlayerMark = p2mark;
+            nextPlayer = "p1"
+        }
 
-        clickDOMid = $(event.target)
-        console.log(clickID);
-        console.log(clickDOMid);
-        $(event.text)[0] = "sX";
-        console.log(this.id);
+        $('.cell').on('click', function(event){
+            // Catch the user click and return div id
+            var clickElement = this;
+            clickScore = this.id;
 
-    });
+            console.log(this.id);
+
+            // // Empty the cell, testing only!
+            // $(clickElement).empty();
+
+            $(clickElement).append(currentPlayerMark);
+             += this.id
+            console.log(p1);
+
+        currentPlayer = nextPlayer;
+
+        });
+    };
+
+    playOneRound();
+});
 
 
 
@@ -102,6 +142,3 @@ $(function(){
         //     }
         //     scoreText.text("Score: " + playerScore);
         // });
-
-
-});
