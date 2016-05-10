@@ -6,61 +6,65 @@ $(function(){
     var p2mark = "O";
     var p1 = 0;
     var p2 = 0;
+    var click;
     var clickScore;
     var playerScore = 0;
     var cpuScore = 0;
     var currentPlayer = "p1";
+    var nextPlayer;
     var currentPlayerMark;
 
     var wins = [7, 56, 448, 73, 146, 292, 273, 84];
 
-    // Get current player function, return the current players mark to rest of game
-
-    // function turnChooser(){
-    //     if (turn%2 === 2){
-    //         currentPlayerMark = p2mark;
-    //         currentPlayer = p2;
-    //     }else {
-    //         currentPlayerMark = p1mark;
-    //         currentPlayer = p1;
-    //     }
-    //     console.log(currentPlayerMark);
-    //     return currentPlayerMark;
-    // }
-    //
-    // turnChooser()
-
-    // Game code
-
     function playOneRound(){
         if (currentPlayer = "p1"){
             currentPlayerMark = p1mark;
-            var nextPlayer = "p2"
+            nextPlayer = "p2"
+
+            $('.cell').on('click', function(event){
+                console.log($(this).text());
+                if ($(this).text() == "") {
+                    $(this).append(currentPlayerMark);
+                    p1 += Number(this.id);
+                    console.log(p1);
+                } else {
+                    return;
+                }
+
+            });
+
         }else {
             currentPlayerMark = p2mark;
             nextPlayer = "p1"
-        }
 
-        $('.cell').on('click', function(event){
-            // Catch the user click and return div id
-            var clickElement = this;
-            clickScore = this.id;
+            $('.cell').on('click', function(event){
+                // Catch the user click and return div id
+                var clickElement = this;
+                clickScore = this.id;
+                console.log(this.id);
 
-            console.log(this.id);
+                $(clickElement).append(currentPlayerMark);
+                p1 += Number(this.id);
+                console.log(p1);
+                nextPlayer = "p2";
+            });
+        };
 
-            // // Empty the cell, testing only!
-            // $(clickElement).empty();
-
-            $(clickElement).append(currentPlayerMark);
-             += this.id
-            console.log(p1);
-
-        currentPlayer = nextPlayer;
-
-        });
     };
 
     playOneRound();
+
+    // Check for a winner!
+
+//     win = function (score) {
+//     for (var i = 0; i < wins.length; i += 1) {
+//         if ((wins[i] & score) === wins[i]) {
+//             return true;
+//         }
+//     }
+//     return false;
+// },
+
 });
 
 
