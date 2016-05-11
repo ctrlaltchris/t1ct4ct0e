@@ -29,9 +29,18 @@ h2 {
     padding: 0;
 }
 
-#buttons {
+#gameButtons {
     position: absolute;
     bottom: -100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#modeButtons {
+    position: absolute;
+    bottom: -100px;
+    right: 0px;
     text-align: center;
     display: flex;
     justify-content: center;

@@ -9,7 +9,8 @@
     var nextPlayer = "p1";
     var currentPlayerMark;
     var roundCounter = 0
-
+    var random = 0;
+    var cpuMoves = [1, 2, 4, 8, 16, 32, 64, 128, 256]
     var wins = [7, 56, 448, 73, 146, 292, 273, 84];
 
     $('#new').on('click', function(event){
@@ -61,9 +62,20 @@
         });
     };
 
+    function getRandom() {
+        return Math.floor(Math.random() * (10 - 0));
+    }
+
     // CPU player
     function cpuPlayer() {
-
+        var random = Math.floor(Math.random() * (8 - 0));
+        console.log(random);
+        if ($('#'+cpuMoves[random]).text() === "") {
+            console.log(cpuMoves[random]);
+            $('#'+cpuMoves[random]).text(p2mark);
+        }else {
+            cpuPlayer()
+        }
     }
 
     // Check for a win
