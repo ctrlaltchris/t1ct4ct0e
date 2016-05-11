@@ -1,25 +1,19 @@
 // $(function(){
 
-    var turn = 0;
-    var round = 1;
     var p1mark = "X";
     var p2mark = "O";
     var p1 = 0;
     var p2 = 0;
     var p1wins = 0;
     var p2wins = 0;
-    var click;
-    var clickScore;
-    var playerScore = 0;
-    var cpuScore = 0;
     var nextPlayer = "p1";
     var currentPlayerMark;
 
     var wins = [7, 56, 448, 73, 146, 292, 273, 84];
 
-    playOneRound();
+    playGame();
 
-    function playOneRound(){
+    function playGame(){
 
         $('.cell').on('click', function(event){
             // Player 1 turn
@@ -67,15 +61,27 @@
             if ((wins[i] & score) === wins[i]) {
                 console.log("WINNAR!");
                 if (nextPlayer === "p1"){
+                    p2wins++;
                     $('h1').text("<< p2 WINS! >>");
-                    p2wins++
+                    $('#p2score').text("p2 [0] Score: " + p2wins);
+                    $('.cell').off('click');
                 }else {
+                    p1wins++;
                     $('h1').text("<< p1 WINS! >>");
-                    p1wins++
+                    $('#p1score').text("p1 [X] Score: " + p1wins);
+                    $('.cell').off('click');
                 }
 
             }
         }
     };
+
+    function resetBoard() {
+        $('.cell').empty();
+        $('h1').text(" \\\\ Tic Tac Toe! >");
+        p1 = 0;
+        p2 = 0;
+        playGame();
+    }
 
 // });
