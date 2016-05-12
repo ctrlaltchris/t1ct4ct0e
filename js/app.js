@@ -1,5 +1,8 @@
 // $(function(){
 
+    // Trigger options modal on page load to prompt user for 1P/2P gameplay
+    $('.modal-trigger').leanModal();
+
     var p1mark = "X";
     var p2mark = "O";
     var p1 = 0;
@@ -8,59 +11,59 @@
     var p2wins = 0;
     var nextPlayer = "p1";
     var currentPlayerMark;
-    var roundCounter = 0
+    var roundCounter = 0;
     var random = 0;
-    var cpuMoves = [1, 2, 4, 8, 16, 32, 64, 128, 256]
+    var cpuMoves = [1, 2, 4, 8, 16, 32, 64, 128, 256];
     var wins = [7, 56, 448, 73, 146, 292, 273, 84];
 
+    // Set event listeners for gameplay buttons
     $('#new').on('click', function(event){
             newGame();
     });
-
     $('#reset').on('click', function(event){
         resetGame();
     });
+    $('#1p').on('click', function(event){
+        // play1pGame();
+    });
+    $('#2p').on('click', function(event){
+        // play2pGame();
+    });
 
+    // Run 1P/2P game depending on user selection
     playGame();
 
     function playGame(){
-
         $('.cell').on('click', function(event){
-
             // Player 1 turn
             if (nextPlayer === "p1"){
                 currentPlayerMark = p1mark;
-                nextPlayer = "p2"
+                nextPlayer = "p2";
 
                 if ($(this).text() === "") {
                     $(this).append(currentPlayerMark);
                     p1 += Number(this.id);
                     console.log("p1 score is: " + p1);
-
                     checkWinner(p1, nextPlayer);
-
                 } else {
                     return;
                 }
-
             // Player 2 turn
             } else {
                 currentPlayerMark = p2mark;
-                nextPlayer = "p1"
+                nextPlayer = "p1";
 
                 if ($(this).text() === "") {
                     $(this).append(currentPlayerMark);
                     p2 += Number(this.id);
                     console.log("p2 score is: " + p2);
-
                     checkWinner(p2, nextPlayer);
-
                 } else {
                     return;
                 }
             }
         });
-    };
+    }
 
     function getRandom() {
         return Math.floor(Math.random() * (10 - 0));
@@ -68,11 +71,13 @@
 
     // CPU player
     function cpuPlayer() {
-        var random = Math.floor(Math.random() * (8 - 0));
+        var random = Math.floor(Math.random() * (9 - 0));
         console.log(random);
-        if ($('#'+cpuMoves[random]).text() === "") {
+        if ($('#' + cpuMoves[random]).text() === "") {
             console.log(cpuMoves[random]);
-            $('#'+cpuMoves[random]).text(p2mark);
+            nextPlayer = "p1"
+            $('#' + cpuMoves[random]).text(p2mark);
+            checkWinner(p2, nextPlayer)
         }else {
             cpuPlayer()
         }
