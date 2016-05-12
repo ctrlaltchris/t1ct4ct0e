@@ -11,15 +11,20 @@
 </head>
 
 <body>
-    <h1> \\ Tic Tac Tizzle! ></h1>
+    <header>
+        <h1> \\ Tic Tac Tizzle! ></h1>
+    </header>
 
     <!-- Modal Structure -->
-    <div id="modal1" class="modal">
+    <div id="welcomeModal" class="modal">
         <div class="modal-content">
             <h4>Welcome to Tic Tac Tizzle!</h4>
-                <p>The rules are simple: just try and get three of the same symbol in arow and you win!</p>
-                <p>Select a play mode below: 1P will pit you against a ruthlessly efficient CPU controller tic-tac-toe-terminator. 2P mode will let you play locally against a friend/mortal enemy!</p>
-                friend/mortal enemy!</p>
+                <p>The rules are simple: just try and get three of the same symbol in a row and you win!</p>
+                <p>Select a play mode below:</p>
+                <p>1P mode will pit you against a ruthlessly efficient, CPU controlled tic-tac-toe-terminator.</p>
+                <p>2P mode will let you play locally against a friend/mortal enemy. You can change your play mode at any time using the
+                "<i class="material-icons">settings</i> Options" button.</p>
+                <p>Just hit a button below to begin the mayhem!</p>
         </div>
         <div class="modal-footer">
             <a id="2p" href="#!" class="modal-action modal-close aves-effect waves-light btn-large red">2P</a>
@@ -30,7 +35,6 @@
     <div id="gameArea">
         <h2 id="p1score">p1 [X] Score: 0</h2>
         <h2 id="p2score">p2 [O] Score: 0</h2>
-        <h2 id="timer">Time Remaining: 10 </h2>
 
         <div id="gameButtons">
             <button id="new" class="waves-effect waves-light btn-large red">
@@ -40,7 +44,7 @@
         </div>
 
         <div id="modeButtons">
-            <button id="options" data-target="modal1" class="btn modal-trigger waves-effect waves-light btn-large red">
+            <button id="options" data-target="welcomeModal" class="btn modal-trigger waves-effect waves-light btn-large red">
                 <i class="material-icons">settings</i> Options</button>
         </div>
 
