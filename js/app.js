@@ -42,7 +42,6 @@ $(function(){
             // Player 1 turn
             if (nextPlayer === "p1"){
                 nextPlayer = "p2";
-
                 if ($(this).text() === "") {
                     $(this).append(p1mark);
                     p1 += Number(this.id);
@@ -54,7 +53,6 @@ $(function(){
             // Player 2 turn
             } else {
                 nextPlayer = "p1";
-
                 if ($(this).text() === "") {
                     $(this).append(p2mark);
                     p2 += Number(this.id);
@@ -102,6 +100,7 @@ $(function(){
     // Check for a win
     function checkWinner(score, nextPlayer) {
         roundCounter++;
+        console.log(roundCounter);
         for (var i = 0; i < wins.length; i++) {
             console.log(p2);
             if ((wins[i] & score) === wins[i]) {
@@ -119,9 +118,9 @@ $(function(){
                     $('h1').addClass("blink");
                     $('#p1score').text("p1 [X] Score: " + p1wins);
                     $('.cell').off('click');
+                }else if (roundCounter === 9 && winner === "") {
+                    $('h1').text("<< IT'S A DRAW! >>");
                 }
-            } else if (roundCounter === 9 && winner === "") {
-                $('h1').text("<< IT'S A DRAW! >>");
             }
         }
     }
@@ -153,6 +152,8 @@ $(function(){
         p2 = 0;
         p1score = 0;
         p2score = 0;
+        p1wins = 0;
+        p2wins = 0;
         roundCounter = 0;
         winner = 0;
         nextPlayer = "p1";
