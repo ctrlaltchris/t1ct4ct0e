@@ -64,7 +64,7 @@ $(function(){
             }
         });
     }
-
+    // Play user part of 1P game
     function play1PGame() {
         $('.cell').on('click', function(event){
             // Player 1 turn
@@ -83,7 +83,7 @@ $(function(){
         });
     }
 
-    // CPU player
+    // Player CPU player turn
     function cpuPlayer() {
         var random = Math.floor(Math.random() * (9 - 0));
         if ($('#' + cpuMoves[random]).text() === "") {
